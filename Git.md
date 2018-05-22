@@ -174,5 +174,16 @@ git push -u orgin 分支名称
 ### pull 开发中的分支，做出自己的贡献，然后将代码再pull上去
 * 假设线上有 test 分支
 ```
-
+# 克隆线上项目
+git clone ...
+# 同步 test 分支
+git pull origin test:test #这句话的意思是，在本地创建一个test分支同步线上的test分支
+# 切换到 test 分支 & 基本操作...
+git checkout test & ...
+# 保存，提交，更新
+git add . & git commit -m "edit" & git push
+# 此时会报错，那么使用错误提示后推荐的命令即可
+git push --set-upstream origin test
 ```
+
+### 远程分支合并
