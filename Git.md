@@ -186,4 +186,19 @@ git add . & git commit -m "edit" & git push
 git push --set-upstream origin test
 ```
 
-### 远程分支合并
+### 具体开发过程
+1. 线上仓库的建设
+2. 线下开发人员克隆仓库 `git clone ...`
+3. 项目组长开设实现不同功能的分支 `git branch ...`
+4. 在不同的分支下实现功能 `git checkout ... & do something ...`
+5. 合并分支 `git merge ...`
+6. 有可能需要下载分支的最新状态 `git pull 分支:分支`
+7. 推送分支的最新状态 `git push / git push --set-upstream origin 分支`
+8. 下载最新的主线分支，在master分支下 `git pull`
+
+### 使用 GitHub 自动化部署项目
+* 大概过程
+    * GitHub 托管代码
+    * 本地开发代码并推送最新代码给GitHub，出发GitHub.hook（GitHub上的一个钩子程序）
+    * Web服务器自动读取最新代码，GitHub.hook 请求 web.hook（web服务器上的钩子程序） 。
+* 具体实现
