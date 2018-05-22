@@ -161,3 +161,8 @@ git remote add orgin git@github.com:username/projectName.git
 # 提交
 git push -u orgin 分支名称
 ```
+
+> 我更喜欢：GitHub新建库，本地克隆，然后直接使用 `git push` 推送代码
+
+### 本地新建分支，然后合并到线上master分支
+* `git branch -a` 罗列本地和线上所有的分支
