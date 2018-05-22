@@ -202,3 +202,28 @@ git push --set-upstream origin test
     * 本地开发代码并推送最新代码给GitHub，出发GitHub.hook（GitHub上的一个钩子程序）
     * Web服务器自动读取最新代码，GitHub.hook 请求 web.hook（web服务器上的钩子程序） 。
 * 具体实现
+    * 第一步省略（前面已经做过了）
+    * 第二步，我们需要在 GitHub 上，打开项目，然后打开设置,最后打开这个地址:(username / projectName)对应你的GitHub用户名和项目名称：
+    
+        https://github.com/username/projectName/settings/hooks/new
+    * 第三步，在你的Web服务器中写一个 WebHook
+    ```
+    <?php
+
+        $secret = "你配置的 GitHub.hook 的 Secret";
+
+        $path = "项目在本地物理地址的相对路径";
+
+        $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
+
+        if($signature) {
+            $hash = "sha1=" . hash_hamac('sha1', file_get_contents("php://input", $secret));
+            if(strcmp($signature, $hash) == 0) {
+                echo shell_exec("cd {$path} && /user/bin/git reset --hard origin/master && /user/bin/git clean -f && /user/bin/git pull 2>&1");
+            exit();
+            }
+        }
+
+    http_response_code(404);
+    ?>
+    ```
