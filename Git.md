@@ -167,5 +167,8 @@ git push -u orgin 分支名称
 ### 本地新建分支，线上也建一个一样的分支
 * `git branch -a` 罗列本地和线上所有的分支
 * 如果此时新建分支 `git branch 新分支`，而线上依然是没有的。
-* 如果需要将新建的分支也同步到线上，那么使用`git push --set-upstream origin 新分支名称`同步一个新分支到线上。（线上就有 master 和 新分支 两条分支了）
+* 如果需要将新建的分支也同步到线上，那么在当前分支下使用`git push --set-upstream origin 新分支名称`同步一个新分支到线上。（线上就有 master 和 新分支 两条分支了）
 * 删除线上分支 `git push origin --delete 线上拥有的分支的名称`
+
+# 真正的使用
+### ！
