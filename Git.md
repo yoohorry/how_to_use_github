@@ -171,4 +171,8 @@ git push -u orgin 分支名称
 * 删除线上分支 `git push origin --delete 线上拥有的分支的名称`
 
 # 真正的使用
-### ！
+### pull 开发中的分支，做出自己的贡献，然后将代码再pull上去
+* 假设线上有 test 分支
+```
+
+```
